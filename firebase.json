@@ -3,8 +3,11 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "site": "family-tree-beta",
-
-    "public": "public"
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }
