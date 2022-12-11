@@ -1,29 +1,39 @@
 import React from 'react';
-import db from '../firebase';
-import { Flex, MediaCard, Text } from 'exsportia-components';
-import { collection, getDoc, doc } from "firebase/firestore";
+import {
+  Flex,
+  Text,
+  MediaCard,
+  ModalContext,
+} from 'exsportia-components';
+// pages
+import { Profile } from '../pages/person-profile';
 /////////////////////////////////////////////////////////////////
-
-const person = async () => {
-  try {
-    const response = await getDoc(doc(db, 'persons', '00000000'));
-    const person = response.data();
-    console.log(person);
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 export const PersonalCard = ({
   settings,
   name = 'name',
   surname = 'surname',
-  fathersName = 'fathersName',
   image = 'https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-avatar-placeholder-png-image_3416697.jpg',
 }) => {
-  person();
+  const { openModal } = React.useContext(ModalContext);
   return (
-    <Flex width='150px' height='200px' flexDirection='column' alignItems='center' justifyContent='center' bg='white' borderRadius='10px' boxShadow='0 0 10px 0 rgba(0, 0, 0, 0.1)'>
+    <Flex
+      bg='white'
+      width='150px'
+      height='200px'
+      cursor='pointer'
+      alignItems='center'
+      borderRadius='10px'
+      flexDirection='column'
+      justifyContent='center'
+      {...settings}
+      onClick={() => openModal({
+        component: (
+          <Profile />
+        ),
+      })}
+      boxShadow='0 0 10px 0 rgba(0, 0, 0, 0.1)'
+    >
       <MediaCard
         image={image}
         settings={{
