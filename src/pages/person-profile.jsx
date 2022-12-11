@@ -1,10 +1,11 @@
 import React from 'react';
+import { Flex } from 'exsportia-components';
 ///////////////////////////////////////////////////////////////
 
 export const Profile = () => {
   return (
-    <div>
-      <h1>Profile</h1>
-    </div>
+    <Flex>
+      progile
+    </Flex>
   );
 };

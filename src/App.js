@@ -1,11 +1,16 @@
 import './App.css';
 import React from 'react';
-import { PersonalCard } from './molecules/personal-card';
+import { Main } from './pages/main';
+import { ModalProvider, LayoutProvider } from 'exsportia-components';
 
 function App() {
   return (
     <div className="App">
-      <PersonalCard />
+      <LayoutProvider>
+        <ModalProvider>
+          <Main/>
+        </ModalProvider>
+      </LayoutProvider>
     </div>
   );
 }
